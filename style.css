@@ -1,0 +1,39 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-image: url(backgroung-image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+div{
+  width: 450px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 100px;
+  margin: auto;
+  color: white;
+  font-family: 'Poiret One', cursive;
+  border-radius: 20px;
+}
+
+h1{
+  font-family: 'PT Serif', serif;
+  font-size: 40px;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: aqua;
+}
+
