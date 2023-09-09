@@ -1,17 +1,34 @@
-// Get the current date and time and update the "current-time" and "current-day" elements
-function updateDateTime() {
-    const currentTimeElement = document.getElementById('currentUTCTime');
-    const currentDayElement = document.getElementById('currentDay');
-    const now = new Date();
-    const timeString = now.toISOString().split('T')[1].slice(0, 8); // Format the time as a string
-    const dayString = now.toLocaleDateString(undefined, { weekday: 'long' }); // Get the full day name
-
-    currentTimeElement.textContent = `Current Time: ${timeString}`;
-    currentDayElement.textContent = `Current Day: ${dayString}`;
+// Function to update the current day of the week
+function updateCurrentDayOfTheWeek() {
+    const daysOfWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    const currentDate = new Date();
+    const dayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+    document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent =
+        dayOfWeek;
 }
 
-// Update the date and time every second
-setInterval(updateDateTime, 1000);
+// Function to update the current UTC time
 
-// Initial update
-updateDateTime();
+function updateCurrentUTCTime() {
+    const currentMillis = new Date().getTime();
+    document.querySelector('[data-testid="currentUTCTime"]').textContent =
+        currentMillis;
+}
+
+// Initial update of real-time data
+updateCurrentDayOfTheWeek();
+updateCurrentUTCTime();
+
+// Update real-time data every second
+setInterval(function () {
+    updateCurrentDayOfTheWeek();
+    updateCurrentUTCTime();
+}, 1000);
